@@ -5,7 +5,7 @@
 I've made the input, code, model, and output public so you can experiment with it.
 
 `train.py` helps you build a model on chunks of text data.  
-`inference.py` lets you generate text — and maybe laugh at what it comes up with. Just kidding — sometimes it’s surprisingly accurate.
+`inference.py` lets you generate text from your trained model.
 
 Since it's character-level, it focuses more on generating **words** correctly rather than full sentences. 
 For sentence-level generation, I’ll release **wordGPT** soon. 

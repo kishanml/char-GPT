@@ -72,8 +72,11 @@ class Head(nn.Module):
         key = self.key(x)
         query = self.query(x)
         value = self.value(x)
+
+        # scaled dot product attention from paper
         weights = (query @ key.transpose(-2, -1)) * (self.head_size ** -0.5)
         
+        # masking future tokens 
         tril = torch.tril(torch.ones(T, T, device=x.device))
         weights = weights.masked_fill(tril == 0, float('-inf'))
         weights = self.dropout(F.softmax(weights, dim=-1))
@@ -120,6 +123,10 @@ class Block(nn.Module):
         x = x + self.multi_head_attn(self.ln_1(x))
         x = x + self.ff_net(self.ln_2(x))
         return x
+
+
+####################################################################################################################
+
 
 class charGPT(nn.Module):
     def __init__(self, vocab_size: int, block_size: int, embedding_dim: int, no_of_attn_layers: int = 4, no_of_heads: int = 6, dropout: float = 0.2):

@@ -1,6 +1,6 @@
 # charGPT
 
-**charGPT** is a minimal character-level Transformer decoder written in under **200 lines of code**. It uses self-attention to model sequences and predict the next character.
+**charGPT** is a minimal character-level decoder-only Transformer written in under **200 lines of code**. It uses self-attention to model sequences and predict the next character.
 
 I've made the input, code, model, and output public so you can experiment with it.
 
